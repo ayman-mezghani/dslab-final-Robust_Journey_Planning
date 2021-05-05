@@ -5,28 +5,39 @@
 ----
 ## Content
 
-* [Important dates](#important-dates)
-* [Problem Motivation](#problem-motivation)
-* [Problem Description](#problem-description)
-* [Project submission checklist](#project-submission-checklist)
-* [Grading method](#grading-method)
-* [Dataset description](#dataset-description)
+* [HOW-TO](#HOW-TO)
+* [Important dates](#Important-Dates)
+* [Problem Motivation](#Problem-Motivation)
+* [Problem Description](#Problem-Description)
+* [Project Submission Checklist](#Project-Submission-Checklist)
+* [Video Presentations](#Video-Presentations)
+* [Grading Method](#Grading-Method)
+* [Dataset Description](#Dataset-Description)
 
-    - [Actual data](#actual-data)
-    - [Time tables](#time-table-data)
-    - [Stations data](#stations-data)
-    - [Misc data](#misc-data)
+    - [Actual data](#Actual-data)
+    - [Timetable data](#Timetable-data)
+    - [Stations data](#Stations-data)
+    - [Misc data](#Misc-data)
 
-* [Hints](#hints)
-* [References](#references)
-* [FAQ](#faq)
+* [Hints](#Hints)
+* [References](#References)
+* [FAQ](#FAQ)
 
 ----
-## Important dates
+## HOW-TO
 
-The assignment (clear, well-annotated notebook; report-like), **with a short, 7-minute video of your presentation** is due on **Sunday May 30th, 23:59 (noon) CEST**.
+This section intentionally blank. Students must complete it with instructions on how to use the code in their project.
+
+[top](#Content)
+
+----
+## Important Dates
+
+The assignment (clear, well-annotated notebook and/or code; report-like), **with a short, 7-minute video of your presentation** is due on **Sunday May 30th, 23:59 (noon) CEST**.
 
 For the oral defense, we will organize short Q&A discussions of 6 minutes per group. These discussions will be scheduled on **Wednesday June 2nd, 13:00 - 18:00 CEST** - tentatively, actual times to be discussed on a case by case basis.
+
+[top](#Content)
 
 ----
 ## Problem Motivation
@@ -44,15 +55,17 @@ If we now tell you that option 1 carries a fifty percent chance of missing a con
 
 Probably not. However, most public transport applications will insist on the first option. This is because they are programmed to plan routes that offer the shortest travel times, without considering the risk factors.
 
+[top](#Content)
+
 ----
 ## Problem Description
 
 In this final project you will build your own _robust_ public transport route planner to improve on that. You will reuse the SBB dataset (See next section: [Dataset Description](#dataset-description)).
 
 Given a desired arrival time, your route planner will compute the fastest route between departure and arrival stops within a provided confidence tolerance expressed as interquartiles.
-For instance, "what route from A to B is the fastest at least Q% of the time if I want to arrive at B before instant T". Note that *confidence* is a measure of a route being feasible within the travel time computed by the algorithm.
+For instance, "what route from _A_ to _B_ is the fastest at least _Q%_ of the time if I want to arrive at _B_ before instant _T_". Note that *confidence* is a measure of a route being feasible within the travel time computed by the algorithm.
 
-The output of the algorithm is a list of routes between A and B and their confidence levels (all above Q%). The routes must be sorted from latest to earliest departure time. Ideally, it should be possible to visualize the routes on a map with straight lines connecting all the stops traversed by the route.
+The output of the algorithm is a list of routes between _A_ and _B_ and their confidence levels. The routes must be sorted from latest (fastest) to earliest (longest) departure time at _A_, they must all arrive at _B_ before _T_ with a confidence level greater than or equal to _Q_. Ideally, it should be possible to visualize the routes on a map with straight lines connecting all the stops traversed by the route.
 
 In order to answer this question you will need to:
 
@@ -65,10 +78,10 @@ In order to answer this question you will need to:
 Solving this problem accurately can be difficult. You are allowed a few **simplifying assumptions**:
 
 - We only consider journeys at reasonable hours of the day, and on a typical business day, and assuming the schedule of May 13-17, 2019.
-- We allow short (total max 500m "As the Crows Flies") walking distances for transfers between two stations, and assume a walking speed of _50m/1min_ on a straight line, regardless of obstacles, human-built or natural, such as building, highways, rivers, or lakes.
-- We only consider journeys that start and end on known station coordinates (train station, bus stops, etc.), never from a random location. However, walking from the departure point is allowed if there is a better station nearby.
-- We only consider stations in a 15km radius of Zürich's train station, `Zürich HB (8503000)`, (lat, lon) = `(47.378177, 8.540192)`.
-- We only consider stations in the 15km radius that are reachable from Zürich HB, either directly, or via transfers through other stations within the 15km area.
+- We allow short (total max 500m "As the Crows Flies") walking distances for transfers between two stops, and assume a walking speed of _50m/1min_ on a straight line, regardless of obstacles, human-built or natural, such as building, highways, rivers, or lakes.
+- We only consider journeys that start and end on known station coordinates (train station, bus stops, etc.), never from a random location. However, walking from the departure stop to a nearby stop is allowed.
+- We only consider stops in a 15km radius of Zürich's train station, `Zürich HB (8503000)`, (lat, lon) = `(47.378177, 8.540192)`.
+- We only consider stops in the 15km radius that are reachable from Zürich HB, either directly, or via transfers through other stops within the same 15km area.
 - There is no penalty for assuming that delays or travel times on the public transport network are uncorrelated with one another.
 - Once a route is computed, a traveller is expected to follow the planned routes to the end, or until it fails (i.e. miss a connection).
   You **do not** need to address the case where travellers are able to defer their decisions and adapt their journey "en route", as more information becomes available. This would require us to consider all alternative routes (contingency plans) in the computation of the uncertainty levels, which is more difficult to implement.
@@ -79,10 +92,12 @@ Solving this problem accurately can be difficult. You are allowed a few **simpli
 
 Upon request, and with clear instructions from you, we can help prepare the data in a form that is easier for you to process (within the limits of our ability, and time availability). In which case the data will be accessible to all.
 
-----
-## Project submission checklist
+[top](#Content)
 
-* Project and 7-minute (max) video are due before noon of May 25th.
+----
+## Project Submission Checklist
+
+* Project and 7 minute (max) video are due before noon of May 25th.
 
 * The final assignment is to be done in **groups of 4 or 5**, remember to update your group member list if needed.
 
@@ -90,12 +105,31 @@ Upon request, and with clear instructions from you, we can help prepare the data
 
 * Project must contain `final` in the name, or you can fork this [final-assignment](https://dslab2021-renku.epfl.ch/projects/com490-pub/final-assignment) project.
 
-* Include a very short **HOW TO** use your project at the top the `README.md` file, and a link to the video presentation.
+* Provide instructions on how to test your project in the **HOW TO** section of the `README.md` file. Include a link to your video presentation.
 
 * Project sizes, including history, must not exceed 100Mb. Use git-lfs for your larger data sets, or keep as much data as possible on HDFS.
 
 **Note:** use `git lfs migrate import --fixup --include-ref=refs/heads/master` if you accidentally push a large data set on gitlab.  See [using git lfs responsibly](https://renku.readthedocs.io/en/latest/user/data.html) in the renku documentation.
 Since you will be rewriting history, you will need to unprotect your branch in gitlab and force `git push -f`, and coordinate with your peers to make sure that you are all working off the same history.
+
+[top](#Content)
+
+----
+## Video Presentations
+
+Instruction for video presentations:
+
+1. Use Zoom (or other tools) to record your group video.
+
+2. Save the video as an mp4 file.
+
+3. Upload your video to moodle under `Final assignment - video presentation`.
+
+4. Include the link to the video in the **HOW TO** section, at the top of the `README.md` file of your final assignment
+
+Please, **DO NOT** load the video as part of your project, send a video embedded in a PowerPoint presentations, or use any format other than mp4 videos. We must be able to stream the videos in our web browsers.
+
+[top](#Content)
 
 ---- 
 ## Grading Method
@@ -103,6 +137,15 @@ Since you will be rewriting history, you will need to unprotect your branch in g
 At the end of the term you will provide a 7-minute video, in which each member of the project presents a part of the project.
 
 After reviewing your videos, we will invite each group for a 6 mins Q&A. Before the Q&A, we will validate your method on a list of pre-selected departure arrival points, and times of day.
+
+Think of yourselves as a startup trying to sell your solution to the board of a public transport
+company. Your video is your elevator pitch. It must be short and convincing. In it you describe the viability
+of the following aspects:
+
+1. Method used to model the public transport network
+2. Method used to create the predictive models
+3. Route planning algorithm
+4. Validation method
 
 Your grades will be based on the code, videos and Q&A, taking into account:
 
@@ -112,14 +155,7 @@ Your grades will be based on the code, videos and Q&A, taking into account:
 4. Functional quality of the implementation (does it work?)
 5. Explanation of the pro's and con's / shortcomings of the proposed solution
 
-Think of yourselves as a startup trying to sell your solution to the board of a public transport
-company. Your video is your elevator pitch. It must be short and convincing. In it you describe the viability
-of the following aspects, while keeping up with the aforementioned criterias:
-
-1. Method used to model the public transport network
-2. Method used to create the predictive models
-3. Route planning algorithm
-4. Validation method
+[top](#Content)
 
 ----
 ## Dataset Description
@@ -135,7 +171,7 @@ from the open data platform mobility, and [google drive archives](https://drive.
 
 The 2018 to 2020 data is available as a Hive table in ORC format on our HDFS system, under `/data/sbb/orc/istdaten`.
 
-See assignments and exercises of earlier weeks for more information about this data, and the methods to access it.
+See assignments and exercises of earlier weeks for more information about this data, and methods to access it.
 
 We provide the relevant column descriptions below.
 The full description of the data is available in the opentransportdata.swiss data [istdaten cookbooks](https://opentransportdata.swiss/en/cookbook/actual-data/).
@@ -162,7 +198,7 @@ German to English with an automated translator, such as [DeepL](<https://www.dee
 Each line of the file represents a stop and contains arrival and departure times. When the stop is the start or end of a journey, the corresponding columns will be empty (`ANKUNFTSZEIT`/`ABFAHRTSZEIT`).
 In some cases, the actual times were not measured so the `AN_PROGNOSE_STATUS`/`AB_PROGNOSE_STATUS` will be empty or set to `PROGNOSE` and `AN_PROGNOSE`/`AB_PROGNOSE` will be empty.
 
-#### Time table data
+#### Timetable data
 
 We have copied the  [timetable](https://opentransportdata.swiss/en/cookbook/gtfs/) to HDFS.
 
@@ -222,21 +258,21 @@ We provide a summary description of the files below. The most relevant files are
     - `ROUTE_DESC`: _Bus_, _Zub_, _Tram_, etc.
     - `ROUTE_TYPE`:
     
-Notes: PK=Primary Key (unique), FK=Foreign Key (refers to a Primary Key in another table)
+**Note:** PK=Primary Key (unique), FK=Foreign Key (refers to a Primary Key in another table)
 
 The other files are:
 
 * _calendar-dates.txt_ contains exceptions to the weekly patterns expressed in _calendar.txt_.
 * _agency.txt_ has the details of the operators
-* _transfers.txt_ contains the transfer times between stations or platforms in the stations.
+* _transfers.txt_ contains the transfer times between stops or platforms.
 
 Figure 1. better illustrates the above concepts relating stops, routes, trips and stop times on a real example (route _11-3-A-j19-1_, direction _0_)
 
 
  ![journeys](figs/journeys.png)
  
- _Figure 1._ Relation between stops, routes, trips and stop times. The vertical axis represents the stops along the route,
-             the horizontal axis represents the time of day on a non-linear scale. Solid lines connecting the stops correspond to trips.
+ _Figure 1._ Relation between stops, routes, trips and stop times. The vertical axis represents the stops along the route in the direction of travel.
+             The horizontal axis represents the time of day on a non-linear scale. Solid lines connecting the stops correspond to trips.
              A trip is one instances of a vehicle journey on the route. Trips on same route do not need
              to mark all the stops on the route, resulting in trips having different stop lists for the same route.
              
@@ -245,8 +281,8 @@ Figure 1. better illustrates the above concepts relating stops, routes, trips an
 
 For your convenience we also provide a consolidated liste of stop locations in ORC format under `/data/sbb/orc/geostops`. The schema of this table is the same as for the `stops.txt` format described earlier.
 
-Finally, you can find also additional stations data in [BFKOORD_GEO](https://opentransportdata.swiss/en/dataset/bhlist).
-This list is older and not as complete as the station data from the GTFS timetables. Nevertheless, it has the altitude information of the stations, which is not available from the timetable files, in case you need that.
+Finally, you can find also additional stops data in [BFKOORD_GEO](https://opentransportdata.swiss/en/dataset/bhlist).
+This list is older and not as complete as the stops data from the GTFS timetables. Nevertheless, it has the altitude information of the stops, which is not available from the timetable files, in case you need that.
 
 It has the schema:
 
@@ -268,6 +304,8 @@ Others had some success using weather data to predict traffic delays.
 If you want to give a try, web services such as [wunderground](https://www.wunderground.com/history/daily/ch/r%C3%BCmlang/LSZH/date/2019-8-1), can be a good
 source of historical weather data.
 
+[top](#Content)
+
 ----
 ## Hints
 
@@ -282,6 +320,8 @@ In a first version, assume that all trains and buses are always sharp on time.
 Focus on creating a sane collaborative environment that you can use to develop and test your work in team as it evolves.
 Next, work-out the risk-aware solution gradually - start with a simple predictive model and improve it. In addition you can test your algorithm on selected pairs of stops before generalizing to the full public transport network under consideration.
 
+[top](#Content)
+
 ----
 ## References
 
@@ -290,6 +330,8 @@ We offer a list of useful references for those of you who want to push it furthe
 * Adi Botea, Stefano Braghin, "Contingent versus Deterministic Plans in Multi-Modal Journey Planning". ICAPS 2015: 268-272.
 * Adi Botea, Evdokia Nikolova, Michele Berlingerio, "Multi-Modal Journey Planning in the Presence of Uncertainty". ICAPS 2013.
 * S Gao, I Chabini, "Optimal routing policy problems in stochastic time-dependent networks", Transportation Research Part B: Methodological, 2006.
+
+[top](#Content)
 
 ----
 ## FAQ
@@ -302,7 +344,7 @@ We must also allow time for transfers between different modes of transports, suc
 You can use the transfer time information available from `transfers.txt` from the [timetables](#timetable-data).
 Otherwise, we assume that `2min` mininum are required for transfers within a same location
 (i.e. same lat,lon coordinates), to which you add _1min per 50m_ walking time
-to connect two stations that are at most _500m_ appart, on a straight line distance between their two lat,lon. 
+to connect two stops that are at most _500m_ appart, on a straight line distance between their two lat,lon. 
 
 ##### 2 - Q: Can we assume statistical independence between the observed delays?
 * **A**: Yes, see simplifying assumptions in **Problem Description**.
@@ -315,5 +357,7 @@ Also, you must assume that you have no real-time delays information at the time 
 However, this is not recommended, or it should come with a warning.
 Imagine from a user experience perspective, how would you react if you are being proposed an impossible plan in which a transfer is scheduled to depart before you arrive?
 Furthermore, who would you blame if the plan fails: the planner that came up with a theoretically infeasible plan, or the operator who respected their schedule?
+
+[top](#Content)
 
 ----
