@@ -94,7 +94,7 @@ Upon request, and with clear instructions from you, we can help prepare the data
 
 * Project sizes, including history, must not exceed 100Mb. Use git-lfs for your larger data sets, or keep as much data as possible on HDFS.
 
-ℹ️ **Note:** use `git lfs migrate import --fixup --include-ref=refs/heads/master` if you accidentally push a large data set on gitlab.  See [using git lfs responsibly](https://renku.readthedocs.io/en/latest/user/data.html) in the renku documentation.
+**Note:** use `git lfs migrate import --fixup --include-ref=refs/heads/master` if you accidentally push a large data set on gitlab.  See [using git lfs responsibly](https://renku.readthedocs.io/en/latest/user/data.html) in the renku documentation.
 Since you will be rewriting history, you will need to unprotect your branch in gitlab and force `git push -f`, and coordinate with your peers to make sure that you are all working off the same history.
 
 ---- 
@@ -233,7 +233,7 @@ The other files are:
 Figure 1. better illustrates the above concepts relating stops, routes, trips and stop times on a real example (route _11-3-A-j19-1_, direction _0_)
 
 
- ![journeys](figs/journeys.svg)
+ ![journeys](figs/journeys.png)
  
  _Figure 1._ Relation between stops, routes, trips and stop times. The vertical axis represents the stops along the route,
              the horizontal axis represents the time of day on a non-linear scale. Solid lines connecting the stops correspond to trips.
