@@ -311,7 +311,7 @@ source of historical weather data.
 
 Before you get started, we offer a few hints:
 
-- Reserve some time to Google-up the state of the art before implementing. There is a substantial amount of work on this topic. Look for *time-dependent*, or *time-varying networks*, *stochastic route planning under uncertainty* and *isochrone maps*. You should also look in the references provided below.
+- Reserve some time to Google-up the state of the art before implementing. There is a substantial amount of work on this topic. Look for *time-dependent*, or *time-varying networks*, and *stochastic route planning under uncertainty*. You should also look in the references provided below.
 - You should already be acquainted with the data.
 However, as you learn more about the state of the art, spend time to better understand your data.
 Anticipate what can and cannot be done from what is available to you, and plan your design strategy accordingly. Do not hesitate to complete the proposed data sources with your own if necessary.
