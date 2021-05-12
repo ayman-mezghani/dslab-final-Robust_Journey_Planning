@@ -97,7 +97,7 @@ Upon request, and with clear instructions from you, we can help prepare the data
 ----
 ## Project Submission Checklist
 
-* Project and 7 minute (max) video are due before noon of May 25th.
+* Project and 7 minute (max) video are due before midnight of May 30th.
 
 * The final assignment is to be done in **groups of 4 or 5**, remember to update your group member list if needed.
 
