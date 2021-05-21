@@ -12,6 +12,7 @@ dependencies:
   - pip:
       - scikit-learn
       - geopandas
+      - networkx
 # - add packages here
 # - one per line
 prefix: "/opt/conda"
