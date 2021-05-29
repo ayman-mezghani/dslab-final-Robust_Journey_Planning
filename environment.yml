@@ -12,6 +12,8 @@ dependencies:
   - pip:
       - scikit-learn
       - geopandas
+      - voila=0.2.7
+      - pyarrow
 # - add packages here
 # - one per line
 prefix: "/opt/conda"
