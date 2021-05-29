@@ -198,6 +198,7 @@ RUN echo 'export HADOOP_USER_NAME=${JUPYTERHUB_USER}' >> ~/.bashrc && \
 COPY requirements.txt environment.yml /tmp/
 RUN conda env update -q -f /tmp/environment.yml && \
     /opt/conda/bin/pip install -r /tmp/requirements.txt && \
+    jupyter serverextension enable voila --sys-prefix && \
     conda clean -y --all && \
     sed -Esi -e "s|'user',\s*None|'user', os.environ['JUPYTERHUB_USER']|g" \
              -e "s|'effective_user',\s*None|'effective_user', user|g" \
