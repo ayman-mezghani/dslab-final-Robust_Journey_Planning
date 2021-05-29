@@ -7,12 +7,12 @@ dependencies:
   - matplotlib
   - ipywidgets
   - plotly=4.14.3
+  - voila=0.2.7
   - hdfs3
   - pip
   - pip:
       - scikit-learn
       - geopandas
-      - voila=0.2.7
       - pyarrow
 # - add packages here
 # - one per line
