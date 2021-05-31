@@ -26,7 +26,16 @@
 ----
 ## HOW-TO
 
-This section intentionally blank. Students must complete it with instructions on how to use the code in their project.
+There are 3 notebooks in the notebooks folder:  
+1. schedule.ipynb, which contains all pre-processing of the schedule dataset
+2. istdaten.ipynb, which contains all pre-processing of the istdaten dataset
+3. path_finder.ipynb, which contains the code for routing and probability calculations  
+  
+The notebooks have to be run in the order above if you want to run the whole thing. Otherwise, you may uncomment the line `username = "jellouli"` in the 2nd cell of path_finder.ipynb to run 
+the notebook as one of the students in the group.
+
+We use Voila for the final-interface, the first cell of path_finder.ipynb generates a link that will take you to the correct Voila page.    
+Initial running time for setup may be around 1min, but the app will run very fast afterwards.
 
 [top](#Content)
 
